@@ -1,3 +1,16 @@
-header {
-  padding: 1rem 2rem;
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin: 0 2rem;
+    text-align: center;
+    width: 200px;
+  }
+
+  i {
+    cursor: pointer;
+  }
+
 }
