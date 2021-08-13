@@ -34,8 +34,8 @@ ul {
 input {
   display: block;
   margin-bottom: 0.5rem;
+  padding: 0.4rem;
   width: 100%;
-  padding: 4rem;
   font-size: 1.2rem;
   border: 1px solid#cccccc;
   outline: none;
@@ -55,7 +55,7 @@ table th {
 .btn {
   display: inline-block;
   margin-right: 0.5rem;
-  padding: 1.4rem 1.3rem;
+  padding: 0.4rem 0.3rem;
   font-size: 1rem;
   color: #333;
   background-color: var(--light-color);
