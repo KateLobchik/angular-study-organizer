@@ -1,20 +1,22 @@
 <table>
-  <thead>
+  <thead class="table__header">
     <tr>
-      <th>Sunday</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thurday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
+      <th>Mo</th>
+      <th>Tu</th>
+      <th>We</th>
+      <th>Th</th>
+      <th>Fr</th>
+      <th>Sa</th>
+      <th>Su</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="lala">
     <tr *ngFor="let week of calendar">
-      <td *ngFor="let day of week.days" [class.disabled]="day.disabled" (click)="select(day.value)">
-        <span [class.selected]="day.selected" [class.active]="day.active">
+      <td *ngFor="let day of week.days" [class.active-selected]="day.active && day.selected"
+        [class.disabled]="day.disabled" [class.selected]="day.selected" [class.active]="day.active"
+        (click)="select(day.value)">
+        <span [class.withTask]="day.value | moment: 'DD-MM-YYYY' | hasTask: daysWithTask | async">
           {{day.value | moment: 'DD'}}
         </span>
       </td>

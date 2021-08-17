@@ -8,6 +8,7 @@ import { OrganizerComponent } from './organizer/organizer.component';
 import { MomentPipe } from './selector/shared/moment.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HasTaskPipe } from './selector/shared/has-task.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     CalendarComponent,
     SelectorComponent,
     OrganizerComponent,
-    MomentPipe
+    MomentPipe,
+    HasTaskPipe
   ],
   imports: [
     BrowserModule,

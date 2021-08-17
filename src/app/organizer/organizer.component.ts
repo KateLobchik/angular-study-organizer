@@ -22,7 +22,7 @@ export class OrganizerComponent implements OnInit {
     this.dateService.date.pipe(
       switchMap(value => this.taskServce.load(value))
     ).subscribe(tasks => {
-      this.tasks = tasks
+      this.tasks = tasks;
     })
 
     this.form = new FormGroup({
@@ -35,7 +35,8 @@ export class OrganizerComponent implements OnInit {
 
     const task: Task = {
       title,
-      date: this.dateService.date.value.format('DD-MM-YYYY')
+      date: this.dateService.date.value.format('DD-MM-YYYY'),
+      tasks: true
     }
 
     this.taskServce.create(task).subscribe(task => {

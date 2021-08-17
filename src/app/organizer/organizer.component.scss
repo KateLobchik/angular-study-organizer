@@ -1,17 +1,133 @@
-section {
+.organizer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   padding: 1rem;
-  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  position: relative;
 
-  header {
-    margin-bottom: 1rem;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 110%;
+    height: 100%;
+    background: linear-gradient(210deg, #8efcf3, #69b7eb, #a46faf);
+    z-index: -1;
+    transform: translate(-50%, 0);
   }
 }
 
-.task {
+.organizer__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.organizer-date__week-day {
+  padding-right: 6px;
+  font-size: 25px;
+  color: rgb(28, 20, 39);
+  opacity: 0.8;
+}
+
+.organizer-date__date {
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.organize__tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks__task-list {
+  width: 100%;
+  list-style: none;
+}
+
+.tasks__task {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
+  width: 100%;
+  height: 60px;
+  background-color: #eee;
+
+  &:hover {
+    box-shadow: 3px 3px 10px rgb(98, 135, 146);
+  }
+}
+
+.tasks__number {
+  margin-right: 1rem;
+}
+
+.tasks__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.tasks__input {
+  display: block;
+  padding: 0.4rem;
+  width: 100%;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 1px solid#cccccc;
+  outline: none;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:focus {
+    background-color: #eee;
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.3rem;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(150deg, #6b2cfd, #d816ff);
+  border: none;
+  outline: none;
+  transition: opacity .2s;
+  cursor: pointer;
+
+  &:disabled {
+    color: #fff;
+    background: var(--dark-color);
+    opacity: 0.5;
+    cursor:not-allowed
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+}
+
+.btn-block {
+  display: block;
+  margin-left: 20px;
+  width: 20%;
+}
+
+.btn-delete {
+  color: #fff;
+  background: #dd7889;
+
+  &:hover {
+    background: #d82644;
+  }
 }

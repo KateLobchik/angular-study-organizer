@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { generate } from 'rxjs';
+import { generate, Observable } from 'rxjs';
 import { DateService } from '../selector/shared/data.service';
+import { Task, TaskService } from '../selector/shared/task.service';
 
 interface Day {
   value: moment.Moment,
@@ -22,17 +23,18 @@ interface Week {
 export class CalendarComponent implements OnInit {
 
   calendar: Week[] | null = null;
+  daysWithTask: Observable<string[]> = this.taskServce.haveMark()
 
-
-  constructor(private dateService: DateService) { }
+  constructor(private dateService: DateService,
+    public taskServce: TaskService) { }
 
   ngOnInit() {
     this.dateService.date.subscribe(this.generate.bind(this));
-
-
   }
+
+
   generate(now: moment.Moment) {
-    const startDay = now.clone().startOf('month').startOf('week');
+    const startDay = now.clone().startOf('month').startOf('week').isoWeekday(1);
     const endDay = now.clone().endOf('month').endOf('week');
 
     const date = startDay.clone().subtract(1, 'day');

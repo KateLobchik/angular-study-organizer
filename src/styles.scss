@@ -14,7 +14,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: rgb(28, 20, 39);
   color: #333;
 }
 
@@ -27,64 +27,28 @@ a {
   }
 }
 
-ul {
-  list-style: none;
-}
-
-input {
-  display: block;
-  margin-bottom: 0.5rem;
-  padding: 0.4rem;
-  width: 100%;
-  font-size: 1.2rem;
-  border: 1px solid#cccccc;
-  outline: none;
-}
-
 .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: auto;
   padding: 0 2rem;
-  max-width: 1100px;
+  max-width: 1200px;
   overflow: hidden;
+  height: 100vh;
 }
 
-table th {
-  background-color: var(--light-color);
+.container__calendar {
+  margin: auto 0;
+  width: 80%;
 }
 
-.btn {
-  display: inline-block;
-  margin-right: 0.5rem;
-  padding: 0.4rem 0.3rem;
-  font-size: 1rem;
-  color: #333;
-  background-color: var(--light-color);
-  border: none;
-  outline: none;
-  transition: opacity .2s;
-  cursor: pointer;
-
-  &:disabled {
-    color: #fff;
-    background-color: var(--dark-color);
-    cursor:not-allowed
-  }
-
-  &:hover:not(:disabled) {
-    opacity: 0.8;
-  }
-}
-
-.btn-block {
-  display: block;
+.calendar-wrapper {
   width: 100%;
-}
+  position: relative;
 
-.btn-primory {
-  color: #fff;
-  background-color: var(--primory-color);
+  &:after {
+  content: "";
+  padding-top: 100%;
+  display: block;
 }
-
-.text-center {
-  text-align: center;
 }

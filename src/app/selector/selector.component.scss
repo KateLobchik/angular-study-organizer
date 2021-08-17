@@ -1,16 +1,25 @@
 p {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   span {
     margin: 0 2rem;
     text-align: center;
-    width: 200px;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: italic;
+    background: linear-gradient(210deg, #63fdf0, #7860ff, #db27ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   i {
     cursor: pointer;
+
+    &:hover {
+      color: #eee;
+    }
   }
 
 }

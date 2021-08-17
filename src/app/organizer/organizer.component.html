@@ -1,29 +1,28 @@
-<section>
-  <header>
-    Organizer: <strong>{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
-    <hr>
+<section class="organizer">
+  <header class="organizer__header organizer-date">
+    <strong class="organizer-date__week-day">{{dateService.date | async | moment:'dddd'}}</strong>
+    <strong class="organizer-date__date">{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
   </header>
 
-
-  <main>
-    <ul *ngIf="tasks.length; else NoTasks">
-      <li class="task" *ngFor="let task of tasks, let i = index">
+  <main class="organize__tasks tasks">
+    <ul class="tasks__task-list" *ngIf="tasks.length; else NoTasks">
+      <li class="tasks__task" *ngFor="let task of tasks, let i = index">
         <span>
-          <strong>{{i+1}}</strong>
+          <strong class="tasks__number">{{i+1}}</strong>
           {{task.title}}
         </span>
-        <button class="btn btn-primory" (click)="remove(task)">Remove</button>
+        <button class="btn btn-delete" (click)="remove(task)">Remove</button>
       </li>
     </ul>
     <ng-template #NoTasks>
-      <p class="text-center">No tasks yet...</p>
+      <p class="tasks__text-center">No tasks yet...</p>
     </ng-template>
   </main>
 
   <footer>
-    <form (ngSubmit)="submit()" *ngIf="form" [formGroup]="form">
-      <input type="text" formControlName="title">
-      <button type="submit" class="btn btn-primory btn-block" [disabled]="form.invalid">Add</button>
+    <form class="tasks__form" (ngSubmit)="submit()" *ngIf="form" [formGroup]="form">
+      <input class="tasks__input" type="text" formControlName="title">
+      <button type="submit" class="btn btn-block" [disabled]="form.invalid"><span class="btn-text">Add</span></button>
     </form>
   </footer>
 </section>
